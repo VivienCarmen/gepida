@@ -1,15 +1,25 @@
+<!--
+File: index.html
+Author: Varga Vivien
+Copyright: 2023, Varga Vivien
+Group: Szoft I-2 E
+Date: 2023-03-07
+Github: https://github.com/VivienCarmen/gepida.git
+Licenc: GNU GPL
+-->
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sablon</title>
+    <title>Gepida</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Termés</h1>
+        <h1>Bicikli modellek</h1>
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" 
@@ -21,7 +31,8 @@
             <thead>
               <tr>
                 <th>Név</th>
-                <th>Mennyiség</th>
+                <th>kerék</th>
+                <th>használat</th>
                 <th>Ár</th>
               </tr>
             </thead>
@@ -54,9 +65,14 @@
             id="name" class="form-control">
           </div>
           <div class="mt-3">
-            <label for="quantity" class="form-label">Mennyiség</label>
+            <label for="quantity" class="form-label">Kerék</label>
             <input type="text" placeholder="Mennyiség"
             id="quantity" class="form-control">
+          </div>
+          <div class="mt-3">
+            <label for="use" class="form-label">Használat</label>
+            <input type="text" placeholder="Használat"
+            id="use" class="form-control">
           </div>
           <div class="mt-3">
             <label for="price" class="form-label">Ár</label>
@@ -111,9 +127,14 @@
             id="editname" class="form-control">
           </div>
           <div class="mt-3">
-            <label for="editquantity" class="form-label">Mennyiség</label>
-            <input type="text" placeholder="Mennyiség"
+            <label for="editquantity" class="form-label">Kerék</label>
+            <input type="text" placeholder="kerék"
             id="editquantity" class="form-control">
+          </div>
+          <div class="mt-3">
+            <label for="edituse" class="form-label">Használat</label>
+            <input type="text" placeholder="Használat"
+            id="edituse" class="form-control">
           </div>
           <div class="mt-3">
             <label for="editprice" class="form-label">Ár</label>
@@ -140,9 +161,12 @@
 </div>    
 
 
+<div class="about text-center">
+  Varga Vivien, 2023-03-07,Szoft I-2/E
+</div>
 
-
-
+<div class="idezet">
+  "Adj egy embernek egy biciklit, és rájön, hogy halászni rém unalmas.” – Desmond Tutu, észak-afrikai érsek és emberi jogi aktivista, többek között a Nobel béke-díjat is elnyerte. „A biciklizés nem egy játék, hanem egy sportág. Kemény, nehéz és könyörtelen, nagy áldozatokat követel."</div>
 
 
     <script src="js/bootstrap.js"></script>

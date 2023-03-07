@@ -2,40 +2,47 @@ const tbody = document.querySelector("#tbody");
 const saveButton = document.querySelector("#saveButton");
 const nameInput = document.querySelector("#name");
 const quantityInput = document.querySelector("#quantity");
+const useInput = document.querySelector("#use");
 const priceInput = document.querySelector("#price");
 
 const editidInput = document.querySelector("#editid");
 const editnameInput = document.querySelector("#editname");
 const editquantityInput = document.querySelector("#editquantity");
+const edituseInput = document.querySelector("#edituse");
 const editpriceInput = document.querySelector("#editprice");
 
 const saveEditButton = document.querySelector('#saveEditButton');
 
-const gyumolcsok = [
-    { id: 1, name: 'szilva', quantity: 35, price: 8 },
-    { id: 2, name: 'alma', quantity: 45, price: 8.3 },
-    { id: 3, name: 'körte', quantity: 25, price: 9.5 },
-    { id: 4, name: 'barack', quantity: 37, price: 12 }
+const biciklik = [
+    { id: 1, name: 'cassin',     quantity: 28, use: 'offroad',        price: 557900 },
+    { id: 2, name: 'Alboin 900', quantity: 28, use: 'trekking',       price: 519900 },
+    { id: 3, name: 'Asgard',     quantity: 29, use: 'technikás utak', price: 519900 },
+    { id: 4, name: 'Ruga',       quantity: 29, use: 'hegyi',          price: 372900 },
+    { id: 5, name: 'Reptila',    quantity: 28, use: 'városi',         price: 308900 },
+    { id: 6, name: 'Sirmium',    quantity: 29, use: 'hegyi',          price: 264900 },
   ];
 
 
 function generateTbody() {
-    gyumolcsok.forEach((gyumolcs) => {
+    biciklik.forEach((bicikli) => {
         let tr = document.createElement('tr');
         let tdName = document.createElement('td');
+        let tdUse = document.createElement('td');
         let tdQuantity = document.createElement('td');
         let tdPrice = document.createElement('td');
 
-        tdName.textContent = gyumolcs.name;
-        tdQuantity.textContent = gyumolcs.quantity;
-        tdPrice.textContent = gyumolcs.price;
+        tdName.textContent = bicikli.name;
+        tdQuantity.textContent = bicikli.quantity;
+        tdUse.textContent = bicikli.use;
+        tdPrice.textContent = bicikli.price;
 
         tbody.append(tr);
         tr.append(tdName);
         tr.append(tdQuantity);
+        tr.append(tdUse);
         tr.append(tdPrice);        
-        tr.append(generateTdDelete(gyumolcs.id));
-        tr.append(generateTdEdit(gyumolcs))
+        tr.append(generateTdDelete(bicikli.id));
+        tr.append(generateTdEdit(bicikli))
     });
 }
 generateTbody();
@@ -49,14 +56,14 @@ function generateTdDelete(id) {
         console.log(id);
         let index = 0;
         let count = 0;
-        gyumolcsok.forEach((gy) => {
+        biciklik.forEach((gy) => {
             if(gy.id == id) {
                 index = count;
             }
             count++;
         });
         console.log(index);
-        gyumolcsok.splice(index, 1);
+        biciklik.splice(index, 1);
         tbody.textContent = "";
         generateTbody();
     });
@@ -65,7 +72,7 @@ function generateTdDelete(id) {
 }
 
 
-function generateTdEdit(fruit) {
+function generateTdEdit(bicycle) {
     let td = document.createElement('td');
     let button = document.createElement('button');
     button.textContent = "Szerkesztés";
@@ -76,11 +83,12 @@ function generateTdEdit(fruit) {
 
     button.addEventListener('click', () => {
         console.log('működik');
-        console.log(fruit.name);
-        editidInput.value = fruit.id;
-        editnameInput.value = fruit.name;
-        editquantityInput.value = fruit.quantity;
-        editpriceInput.value = fruit.price;
+        console.log(bicycle.name);
+        editidInput.value = bicycle.id;
+        editnameInput.value = bicycle.name;
+        editquantityInput.value = bicycle.quantity;
+        edituseInput.value = bicycle.use;
+        editpriceInput.value = bicycle.price;
 
     });
     td.append(button);
@@ -93,14 +101,16 @@ saveButton.addEventListener('click', () => {
     
     let name =  nameInput.value;
     let quantity = quantityInput.value;
+    let use = useInput.value;
     let price = priceInput.value;
-    let gyumolcs = { 
-        name: name, 
+    let bicikli = { 
+        name:     name, 
         quantity: quantity, 
-        price: price
+        use:      use,
+        price:    price
     };
-    gyumolcsok.push(gyumolcs);
-    console.log(gyumolcsok);
+    biciklik.push(bicikli);
+    console.log(biciklik);
     tbody.textContent = '';
     generateTbody();
     clearFieldOnAddModel();
@@ -109,6 +119,7 @@ saveButton.addEventListener('click', () => {
 function clearFieldOnAddModel() {
     nameInput.value = '';
     quantityInput.value = '';
+    useInput.value = '';
     priceInput.value = '';
 }
 
@@ -118,13 +129,15 @@ saveEditButton.addEventListener('click', () => {
     let id = editidInput.value;
     let name = editnameInput.value;
     let quantity = editquantityInput.value;
+    let use = edituseInput.value;
     let price = editpriceInput.value;
 
-    gyumolcsok.forEach((gyumolcs) => {
-        if (gyumolcs.id == id ) {
-            gyumolcs.name = name;
-            gyumolcs.quantity = quantity;
-            gyumolcs.price = price;
+    biciklik.forEach((bicikli) => {
+        if (bicikli.id == id ) {
+            bicikli.name = name;
+            bicikli.quantity = quantity;
+            bicikli.use = use
+            bicikli.price = price;
         }
     });
     tbody.textContent = '';
