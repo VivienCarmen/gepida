@@ -14,7 +14,7 @@ const editpriceInput = document.querySelector("#editprice");
 const saveEditButton = document.querySelector('#saveEditButton');
 
 const biciklik = [
-    { id: 1, name: 'cassin',     quantity: 28, use: 'offroad',        price: 557900 },
+    { id: 1, name: 'Cassin',     quantity: 28, use: 'offroad',        price: 557900 },
     { id: 2, name: 'Alboin 900', quantity: 28, use: 'trekking',       price: 519900 },
     { id: 3, name: 'Asgard',     quantity: 29, use: 'technikás utak', price: 519900 },
     { id: 4, name: 'Ruga',       quantity: 29, use: 'hegyi',          price: 372900 },
