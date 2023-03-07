@@ -1,3 +1,12 @@
+/*
+* File: app.js
+* Author: Varga Vivien
+* Copyright: 2023, Vivien
+* Group: Szoft I-2 E
+* Date: 2023-03-07
+* Github: https://github.com/VivienCarmen/gepida.git
+
+*/
 const tbody = document.querySelector("#tbody");
 const saveButton = document.querySelector("#saveButton");
 const nameInput = document.querySelector("#name");
